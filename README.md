@@ -1,4 +1,4 @@
-<h1 align="center">Resus <sub>/REE-suss/</sub></h1>
+<h1 align="center">Resus</h1>
 
 <h3 align="center">
   Write your messy lecture notes scattered with shorthand notations and see them all come together through reviewable flash cards.
