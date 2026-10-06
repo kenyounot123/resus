@@ -1,6 +1,6 @@
 # Resus
-
-Give your rough study notes another life. Resus is a local macOS app for writing notes, turning them into reviewable cards, and practicing offline.
+Resus (pronounced as REE-suss) is a local macOS app for writing notes, turning them into reviewable cards, and practicing offline.
+Write your messy lecture notes scattered with shorthand notations and see them all come together through reviewable flash cards. 
 
 ## Download and run
 
