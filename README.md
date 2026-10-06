@@ -1,7 +1,6 @@
-<h1 align="center">Resus</h1>
+<h1 align="center">Resus <sub>/REE-suss/</sub></h1>
 
 <h3 align="center">
-  Resus (pronounced as REE-suss) is a local macOS app for writing notes, turning them into reviewable cards, and practicing offline.<br>
   Write your messy lecture notes scattered with shorthand notations and see them all come together through reviewable flash cards.
 </h3>
 
@@ -10,6 +9,8 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=flat-square" alt="MIT license"></a>
   <img src="https://img.shields.io/badge/macOS-14%2B-black?style=flat-square" alt="macOS 14 or later">
 </p>
+
+Resus is a local macOS app for writing notes, turning them into reviewable cards, and practicing offline.
 
 ## Features
 
