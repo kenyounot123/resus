@@ -13,7 +13,7 @@ Provider tests use a URLProtocol HTTP fixture. No real provider request succeede
 The app was driven through cua_repl, with fresh accessibility observations between actions. Screenshots were inspected in the task transcript. Verification used an isolated `--library-path`, never the user's normal library.
 
 - Created two notes through New note and edited their titles and bodies.
-- Applied bold, italic, a heading, and bullets. Exercised list undo. Formatted notes survived process restart.
+- Applied bold, italic, a heading, and bullets. Verified bullet and bold undo and redo through the toolbar and native keyboard shortcuts. Verified typing undo and redo. Formatted notes survived process restart.
 - Created a manual draft with an exact source excerpt. Study and Practice stayed disabled before approval.
 - Approved the card. Flashcards hid its answer until Reveal answer. Source opened the saved original note beside it.
 - Remembered and Review again produced persisted review counts and scheduled dates. Practice accepted a written answer and displayed it beside the approved answer.

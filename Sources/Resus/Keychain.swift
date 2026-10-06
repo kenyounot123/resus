@@ -1,5 +1,6 @@
 import Foundation
 import Security
+import LocalAuthentication
 import ResusCore
 
 struct Keychain: Sendable {
@@ -7,7 +8,9 @@ struct Keychain: Sendable {
     func read(_ provider: Provider) throws -> String {
         var query = base(provider)
         query[kSecReturnData as String] = true
-        query[kSecUseAuthenticationUI as String] = kSecUseAuthenticationUIFail
+        let context = LAContext()
+        context.interactionNotAllowed = true
+        query[kSecUseAuthenticationContext as String] = context
         query[kSecMatchLimit as String] = kSecMatchLimitOne
         var result: CFTypeRef?
         let status = SecItemCopyMatching(query as CFDictionary, &result)
@@ -19,7 +22,9 @@ struct Keychain: Sendable {
     }
     func save(_ key: String, provider: Provider) throws {
         var query = base(provider)
-        query[kSecUseAuthenticationUI as String] = kSecUseAuthenticationUIFail
+        let context = LAContext()
+        context.interactionNotAllowed = true
+        query[kSecUseAuthenticationContext as String] = context
         if key.isEmpty {
             let status = SecItemDelete(query as CFDictionary)
             guard status == errSecSuccess || status == errSecItemNotFound else { throw ResusError.invalid("Resus could not remove the API key.") }

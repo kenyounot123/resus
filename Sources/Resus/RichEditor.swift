@@ -92,11 +92,7 @@ private final class EditorCommands: ObservableObject {
         let replacement = NSMutableAttributedString(attributedString: storage.attributedSubstring(from: range))
         transform(replacement)
         guard view.shouldChangeText(in: range, replacementString: replacement.string) else { return }
-        let previous = NSAttributedString(attributedString: storage)
         view.undoManager?.beginUndoGrouping()
-        view.undoManager?.registerUndo(withTarget: self) { target in
-            target.restore(previous, selection: selected)
-        }
         storage.replaceCharacters(in: range, with: replacement)
         view.didChangeText()
         let delta = replacement.length - range.length
@@ -105,18 +101,6 @@ private final class EditorCommands: ObservableObject {
         view.undoManager?.setActionName(name)
         view.undoManager?.endUndoGrouping()
         focus()
-    }
-
-    private func restore(_ content: NSAttributedString, selection: NSRange) {
-        guard let view = textView, let storage = view.textStorage else { return }
-        let current = NSAttributedString(attributedString: storage)
-        let currentSelection = view.selectedRange()
-        view.undoManager?.registerUndo(withTarget: self) { target in
-            target.restore(current, selection: currentSelection)
-        }
-        storage.setAttributedString(content)
-        view.setSelectedRange(selection)
-        view.didChangeText()
     }
 
     func trait(_ trait: NSFontTraitMask) {
@@ -268,9 +252,12 @@ private struct NativeNoteEditor: NSViewRepresentable {
 
     @MainActor
     final class Coordinator: NSObject, NSTextViewDelegate {
+        private let history = UndoManager()
         var noteID: UUID?
         var onChange: (Data, String) -> Void
         init(onChange: @escaping (Data, String) -> Void) { self.onChange = onChange }
+
+        func undoManager(for textView: NSTextView) -> UndoManager? { history }
 
         func load(noteID: UUID, rtf: Data, text: String, into view: NSTextView) {
             self.noteID = noteID
