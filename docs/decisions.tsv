@@ -1,0 +1,14 @@
+ts	phase	decision	why	evidence	result
+2026-10-06T15:25:00Z	frame	Build native SwiftUI with AppKit editor	Native text behavior and offline storage match the agreed Mac experience	Package.swift	open
+2026-10-06T15:26:00Z	distribution	Prepare ad hoc download and document notarization limitation	No Developer ID distribution identity was found	docs/mvp-todo.txt	open
+2026-10-06T15:30:00Z	architecture	Choose atomic Codable library	Portable recovery hides fewer storage decisions than SwiftData for this app	docs/architecture-judgment.md	VERIFIED sketch
+2026-10-06T16:07:14.638114+00:00	audit	Clarify initial sketch verdict and signing evidence	Initial architecture scores were judgments rather than runtime proof	docs/architecture-judgment.md; docs/verification.md	sketch accepted; runtime evidence separate
+2026-10-06T16:07:14.638460+00:00	scope	Retain review counts but defer full answer revision history	MVP has explicit reapproval without a history viewer	docs/architecture.md	implemented scope
+2026-10-06T16:07:14.638463+00:00	review	Fix restore identity and preserve clarification answers	Review found stale editors and lost meanings across follow-up questions	Sources/Resus/StudyStore.swift; Tests/ResusCoreTests/LibraryTests.swift	tests pass; same-ID restore VERIFIED in UI
+2026-10-06T16:07:14.638464+00:00	storage	Preflight imports and enforce round-trip archive size	Oversized content must not produce an unreadable saved library	Sources/ResusCore/Archive.swift; Sources/Resus/StudyStore.swift	tests pass
+2026-10-06T16:07:14.638466+00:00	ui	Use light appearance and explicit teal action style	Native dark controls conflicted with the light note surface	Sources/Resus/Theme.swift; Sources/Resus/ResusApp.swift	VERIFIED native screenshots
+2026-10-06T16:07:14.638467+00:00	keychain	Remove automatic key reads from Settings and move access off main actor	Process sampling confirmed an access request blocked the settings window	Sources/Resus/Keychain.swift; Sources/Resus/Forms.swift; .evidence/keychain-blocked-main-thread.txt	Settings VERIFIED; API testing deferred by user
+2026-10-06T16:07:14.638469+00:00	editor	Canonicalize native list markers without changing note meaning	Formatting should not pause approved cards	Sources/Resus/RichTextCodec.swift	VERIFIED list styling and package restart
+2026-10-06T16:07:14.638470+00:00	verification	Drive offline notes cards study backups and recovery	Compilation alone does not prove the user flow	docs/verification.md; .evidence/recovered-library.json	VERIFIED offline flow; 11 tests pass
+2026-10-06T16:07:14.638471+00:00	distribution	Build universal ad hoc preview and verify extracted app	Provide a concrete download while Developer ID notarization remains unavailable	scripts/package.sh; docs/verification.md	VERIFIED arm64 runtime; Intel slice built
+2026-10-06T16:07:14.638472+00:00	forge	Use gh for repository operations	Origin CLI was not installed	https://github.com/kenyounot123/resus	gh selected

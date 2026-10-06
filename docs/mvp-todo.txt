@@ -1,0 +1,17 @@
+1. Read the Principles section of k-mode.
+2. Phase A: Frame.
+3. Phase B: Design the workflow.
+4. Phase C: Run the loop.
+5. Phase D: Keep the audit trail.
+6. Phase E: Verify and hand back.
+
+Architect: Ground, Sketch, Agree, Implement, Scrap.
+Ground skip: Empty repository, greenfield app.
+Arena: Frame, Fan out, Cross-judge, Pick, Graft, Verify.
+Done predicate: A packaged Mac app launches, creates and persists formatted notes, produces reviewable cards through a validated network boundary, approves and studies cards, preserves answers after note edits, restores backup, and does not store keys in its archive. Exercise real UI and restart. Tests cover lifecycle and networking contract. MIT source and build instructions available on requested remote with reviewable PR. Separate real-provider verification from local HTTP fixture coverage.
+Workflow: Compare architecture; select types; implement domain/network then native UI; build and test; drive app; package; review and publish source/PR and local download artifacts.
+Throughput checkpoint: Delegate isolated files only after types settle. Root owns shared app store, package, integration and packaging. Compile at each integration boundary. No duplicate UI drivers.
+
+Swarm: Frame, Fan out, Aggregate, Report. Partition network transport and AppKit editor into separate scratch directories. Root owns models, store, SwiftUI screens, packaging, and verification.
+
+Completed native UI: typed notes, bold, italic, headings, bullets, undo, save/restart, manual draft approval, hidden-answer recall, source inspector, written practice, ratings, formatting-only source stability, note text invalidation, same-ID backup restoration, reapproval. Live provider testing deferred by user.
